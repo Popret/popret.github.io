@@ -1,0 +1,90 @@
+
+/*
+
+    Theming place, replace with your color by follow this
+    guideline.
+
+    Background: #FAFBFA;
+    Section Background: rgba(217, 223, 211,.6)/#D9DFD3;
+    Darker section background/bordor: #859388;
+    Accent color: #38664C;
+    Text color: #13221C;
+*/
+:root {
+--color-background:#FAFBFA;
+--color-section-background: #D9DFD3;
+--color-darker-section-bg-and-border: #859388;
+--color-accent: #38664C;
+--color-text: #13221C;
+}
+body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-accent);
+}
+
+::selection {
+    background-color: rgba(217, 223, 211, .8); 
+    color: var(--color-accent);
+}
+
+nav {
+    color: var(--color-text);
+}
+
+nav a:visited {
+    color: var(--color-accent);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: var(--color-accent);
+}
+
+pre {
+    border: 1px solid var(--color-text);
+    background-color: var(--color-section-background);
+}
+
+
+p code {
+    border: 1px solid var(--color-accent);
+    background-color: rgba(217, 223, 211, .6);;
+}
+
+blockquote {
+    border-left-color: var(--color-darker-section-bg-and-border);
+    background-color: rgba(217, 223, 211, .6);
+}
+
+ul li {
+    color: var(--color-accent);
+}
+
+ul > li > span {
+    color: var(--color-text);
+}
+
+.seed_meta tbody tr td {
+    border-bottom: 1px dashed var(--color-darker-section-bg-and-border);
+}
+
+.seed_meta a {
+    color: var(--color-accent);
+    background: rgba(217, 223, 211, .6);
+}
+
+#recent-seed p, .seed-index-entries p, .catalog-index-entries p {
+    border-bottom: 1px dashed var(--color-darker-section-bg-and-border);
+}
+
+.seed-index-entries_item {
+    border-bottom: 1px dashed var(--color-darker-section-bg-and-border); 
+}
+
+.seed-index-entries_item span p {
+    color: var(--color-accent); 
+    background: rgba(217, 223, 211, .6);
+}

@@ -1,0 +1,117 @@
+/* Want another CSS, read soupault.toml at [widgets.css-base]*/
+@import url('/css/color.css');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+html {
+    font-size: 62.5%;
+    font-family: "Lora", serif;
+    font-weight: 500;
+}
+
+body {
+    font-size: 1.8rem;
+    line-height: 1.618;
+    max-width: 38em;
+    margin: auto;
+    padding: 13px;
+}
+
+img {
+    max-width: 38em;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+nav {
+    display: flex;
+    justify-content:space-between;
+}
+
+nav a {
+    text-decoration-line: none;
+    font-weight: 600;
+}
+
+
+nav section {
+    display: flex;
+}
+
+nav section a {
+    margin-left: .5em;
+}
+
+
+pre {
+    border-radius: .5em;
+    padding: .5em;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+pre::-webkit-scrollbar {
+    display: none;
+}
+
+p code {
+    border-radius: .3em;
+    padding: 0 .3em;
+}
+
+blockquote {
+    border-left-style: solid;
+    border-left-width: 5px;
+    padding-left: 1em;
+    padding-top: .2em;
+}
+
+.seed_meta {
+    display: table;
+    width: 100%;
+}
+
+.seed_meta tbody {
+    width: 100%;
+}
+
+.seed_meta tbody tr td:nth-child(2) {
+    text-align: right;
+    text-transform: lowercase;
+}
+
+.seed_meta a {
+    text-decoration-line: none;
+    padding: 0 .5em;
+    border-radius: .4em;
+}
+
+section#recent-seed, .seed-index-entries, .catalog-index-entries {
+    padding-bottom: 1em;
+}
+
+#recent-seed p, .seed-index-entries p, .catalog-index-entries p {
+    width: 100%;
+    display: flex;
+    margin: .5em auto;
+}
+
+.seed-index-entries_item {
+    display:flex; 
+    justify-content: space-between;
+}
+
+.seed-index-entries_item a {
+    padding: .3em 0em; 
+    margin: .3em;
+}
+
+.seed-index-entries_item span p {
+    border-radius: .4em;
+    padding: .3em 1em; 
+    margin: .3em; 
+    border: none;
+}
