@@ -12,44 +12,36 @@
  </head>
  <body>
   <nav>
-   <a href="/">Home<u>
-    </u></a><u>
+   <a href="/">Home</a>
    <section>
-    <a href="/">
-        </a><a href="/me">Me</a>
+    <a href="/me">Me</a>
         <a href="/now">Now</a>
-    
    </section>
-   
-
-  </u>
- </nav>
- <u>
-</u>
- <h1>
-  Just Quit
- </h1>
- <hr>
- Whatever it is that you're holding onto, just quit.
- <hr>
- If "Tomorrow" is the day you'll quit, That's actually okay, you'll quit tomorrow.
+  </nav>
+  <h1>
+   Just Quit
+  </h1>
+  <hr>
+  Whatever it is that you're holding onto, just quit.
+  <hr>
+  If "Tomorrow" is the day you'll quit, That's actually okay, you'll quit tomorrow.
 <br>But today, you'll get a head start on tomorrow:
 	you'll just stop for today, but tomorrow is the day you <i> quit</i>. 
 
 Use the headstart, you'll already have an extra day when you quit tomorrow.
- <hr>
- <h2 class="counter" id="counter1">
-  Days without Alcohol<sup>*</sup>:
- </h2>
- <h2 class="counter" id="counter2">
-  Days without Youtube<sup>*</sup>:
- </h2>
- <hr>
- <small>*I think I stopped drinking 1-2months before this, but didn't record an exact date. So this is a conservative estimate</small>
+  <hr>
+  <h2 class="counter" id="counter1">
+   Days without Alcohol<sup>*</sup>:
+  </h2>
+  <h2 class="counter" id="counter2">
+   Days without Youtube<sup>*</sup>:
+  </h2>
+  <hr>
+  <small>*I think I stopped drinking 1-2months before this, but didn't record an exact date. So this is a conservative estimate</small>
 <br>
   <small>*Without watching youtube algorithmically, if I search for guitar tutorials, or for music, I can still use the website, without it leading me to problematic behaviour, this is just how I've found is healthy engagement for me.</small>
- <script>
-  function daysBetween(date1, date2) {
+  <script>
+   function daysBetween(date1, date2) {
       return Math.round(Math.abs((date1 - date2) / (24 * 60 * 60 * 1000)));
     }
     const today = new Date();
@@ -57,7 +49,7 @@ Use the headstart, you'll already have an extra day when you quit tomorrow.
     const lastvid = new Date('2024-03-28');
     document.getElementById('counter1').innerHTML += ` ${daysBetween(today, lastdrink)}`;
     document.getElementById('counter2').innerHTML += ` ${daysBetween(today, lastvid)}`;
- </script>
- <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
-</body>
+  </script>
+  <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
+ </body>
 </html>
