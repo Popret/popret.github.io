@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&text=Jano%2Esh&display=swap');
+.splash_main {
+  --_br: 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 3fr 5fr 1fr;
+  grid-template-rows: 1fr 5fr 3fr;
+  max-width: 100%;
+  aspect-ratio:2;
+  position: relative;
+}
+
+.splash_image {
+  grid-row: 1 / 4;
+  grid-column: 1 / 4;
+  border-radius: var(--_br);
+  overflow: hidden;
+}
+
+.splash_image img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splash_cutout{
+  padding: 1rem;
+  background: var(--color-background);
+  font-weight: 500; 
+
+	&::before, &::after{
+	  --_size: var(--_br);
+	  content: "";
+	  position: absolute;
+	  width: var(--_size);
+	  aspect-ratio: 1;
+	  background-image: radial-gradient(
+	    circle at 100% 100%,
+	    transparent var(--_size),
+	    var(--_corner-color, var(--color-background)) calc(var(--_size) + 1px)
+	  );
+	}
+}
+
+.splash_cutout span {
+  display: grid;
+  place-items: center;
+  background: var(--color-background);
+  padding: 0.75rem 0;
+  border-radius: calc(var(--_br) / 2);
+}
+
+.small{
+  grid-row: 1/2;
+  grid-column: 3/4;
+  border-radius: 0 0 0 var(--_br);
+  box-shadow: 0 0 0 1rem var(--color-background);
+	&::after{  
+	  right: 0;
+	  top: 0;
+	  grid-column: 3 ;
+	  grid-row: 2 / 3;
+	  rotate: 90deg;
+	}
+
+	&::before{  
+	  right: 0;
+	  top: 0;
+	  grid-column: 2/3 ;
+	  grid-row: 1;
+	  rotate: 90deg;
+	}
+	& span{
+    text-decoration-line: none;
+    font-weight: 600;
+	}
+}
+
+.splash_cutout.large {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  border-radius: 0 var(--_br) 0 0;
+  box-shadow: 0 0 0 1rem var(--color-background);
+
+	&::after {
+	  left: 0;
+	  bottom: 0;
+	  grid-column: 2;
+	  grid-row: 3 / 4;
+	  rotate: -90deg;
+	}
+
+	&::before {
+	  left: 0;
+	  bottom: 0;
+	  grid-column: 1;
+	  grid-row: 2 / 3;
+	  rotate: -90deg;
+	}
+	& span {
+	color:var(--color-accent);
+	  font-size: 6rem;
+	  line-height:1;
+	  font-family: "Jersey 15",monospace, sans-serif;
+	  font-weight:400;
+	  font-style: normal
+	}
+}
+
+
+
