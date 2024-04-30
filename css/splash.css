@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&text=Jano%2Esh&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&text=jano%2Esh&display=swap');
 .splash_main {
   --_br: 3rem;
   display: grid;
@@ -102,10 +102,10 @@
 	}
 	& span {
 	color:var(--color-accent);
-	  font-size: 6rem;
+	  font-size: 5.2rem;
 	  line-height:1;
-	  font-family: "Jersey 15",monospace, sans-serif;
-	  font-weight:400;
+	  font-family: "Merienda", sans-serif;
+	  font-weight:700;
 	  font-style: normal
 	}
 }
