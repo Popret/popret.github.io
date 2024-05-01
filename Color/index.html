@@ -3,9 +3,48 @@
  <head>
   <meta charset="utf-8">
   <title>
-   Red — Digital Garden
+   Color Pie — Digital Garden
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+   ul{
+display: flex;
+justify-content: space-around;
+padding: 0;
+list-style: none;
+}
+ul li{
+font-size: 1.5em;
+flex: 1;
+text-align: center;
+::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-bottom:6px;
+  margin-right: 3px; 
+  vertical-align: middle;
+}
+}
+ul li:nth-of-type(1) a::before{
+  background-color: var(--color-pie-w);
+}
+ul li:nth-of-type(2) a::before{
+  background-color: var(--color-pie-u);
+}
+ul li:nth-of-type(3) a::before{
+  background-color: var(--color-pie-b);
+}
+ul li:nth-of-type(4) a::before{
+  background-color: var(--color-pie-r);
+}
+ul li:nth-of-type(5) a::before{
+  background-color: var(--color-pie-g)
+}
+  </style>
   <link rel="stylesheet" href="/css/base.css" type="text/css">
   <link rel="stylesheet" href="/css/color.css" type="text/css">
  </head>
@@ -18,18 +57,28 @@
    </section>
   </nav>
   <h1>
-   Red
+   Color Pie
   </h1>
   <p>
-   Allies: <a href="/Green">Green</a> <a href="/Black">Black</a>
+   Invented by Richard Garfield, Perfected by Mark Rosewater.
   </p>
-  <p>
-   Enemies: <a href="/Blue">Blue</a> <a href="/White">White</a>
-  </p>
-  <hr>
-  <p>
-   Red is defined by valuing action over inaction, and valuing emotions and instinct.
-  </p>
+  <ul>
+   <li>
+    <a href="White">White</a>
+   </li>
+   <li>
+    <a href="Blue">Blue</a>
+   </li>
+   <li>
+    <a href="Black">Black</a>
+   </li>
+   <li>
+    <a href="Red">Red</a>
+   </li>
+   <li>
+    <a href="Green">Green</a>
+   </li>
+  </ul>
   <p>
    <table id="seed-meta" class="seed_meta">
     <tbody>
@@ -46,7 +95,7 @@
        Type
       </td>
       <td>
-       <span id="seed-type">Definition</span>
+       <span id="seed-type">Concept</span>
       </td>
      </tr>
      <tr>
@@ -62,7 +111,7 @@
        Tags
       </td>
       <td>
-       <a href="/tag/Color Pie">Color Pie</a>    <a href="/tag/ Red"> Red</a>
+       <a href="/tag/Color Pie">Color Pie</a>
       </td>
      </tr>
      <tr>
