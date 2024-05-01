@@ -17,6 +17,30 @@ ul li{
 font-size: 1.5em;
 flex: 1;
 text-align: center;
+::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align:middle;
+}
+}
+ul li:nth-of-type(1) a::before{
+  background-color: var(--color-pie-w);
+}
+ul li:nth-of-type(2) a::before{
+  background-color: var(--color-pie-u);
+}
+ul li:nth-of-type(3) a::before{
+  background-color: var(--color-pie-b);
+}
+ul li:nth-of-type(4) a::before{
+  background-color: var(--color-pie-r);
+}
+ul li:nth-of-type(5) a::before{
+  background-color: var(--color-pie-g)
 }
   </style>
   <link rel="stylesheet" href="/css/base.css" type="text/css">
