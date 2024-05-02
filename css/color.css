@@ -11,12 +11,22 @@
     Text color: #13221C;
 */
 :root {
+	/* THEME : GREEN */
 --color-background:#FAFBFA;
 --color-section-background: #D9DFD3;
 --color-darker-section-bg-and-border: #859388;
 --color-subtle: #6E887E;
 --color-accent: #38664C;
 --color-text: #13221C;
+	/**/
+	/* THEME : RED 
+--color-background:#FAFAFB;
+--color-section-background: #CFB69F;
+--color-darker-section-bg-and-border: #B3957D;
+--color-subtle: #AF8260;
+--color-accent: #803D3B;
+--color-text: #2C2726;
+/*	*/
 --color-pie-w: #F6DDA2;
 --color-pie-u: #09529A;
 --color-pie-b: #29242D;
@@ -33,7 +43,7 @@ a {
 }
 
 ::selection {
-    background-color: rgba(217, 223, 211, .8); 
+    background-color: color-mix(in srgb, var(--color-section-background), transparent 80%); 
     color: var(--color-accent);
 }
 
@@ -57,12 +67,12 @@ pre {
 
 p code {
     border: 1px solid var(--color-accent);
-    background-color: rgba(217, 223, 211, .6);;
+    background-color: color-mix(in srgb, var(--color-section-background), transparent 60%);
 }
 
 blockquote {
     border-left-color: var(--color-darker-section-bg-and-border);
-    background-color: rgba(217, 223, 211, .6);
+    background-color: color-mix(in srgb, var(--color-section-background), transparent 60%);
 }
 
 ul li {
@@ -79,7 +89,7 @@ ul > li > span {
 
 .seed_meta a {
     color: var(--color-accent);
-    background: rgba(217, 223, 211, .6);
+    background: color-mix(in srgb, var(--color-section-background), transparent 60%);
 }
 
 #recent-seed p, .seed-index-entries p, .catalog-index-entries p {
@@ -92,5 +102,5 @@ ul > li > span {
 
 .seed-index-entries_item span p {
     color: var(--color-accent); 
-    background: rgba(217, 223, 211, .6);
+    background: color-mix(in srgb, var(--color-section-background), transparent 60%);
 }
