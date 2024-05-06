@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merienda&text=jano%2Esh&display=swap');
+@font-face {
+  font-family: 'Merienda';
+  src: url('/assets/fonts/Merienda-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: Bold;
+}
 .splash_main {
   --_br: 3rem;
   display: grid;
