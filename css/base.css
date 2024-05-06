@@ -1,5 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@font-face {
+    font-family: 'Lora';
+    src: url('/assets/fonts/Lora-Reg.woff2') format('woff2-variations'),
+         url('/assets/fonts/Lora-Reg.woff2') format('woff2');
+    font-weight: 1 999;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Lora';
+    src: url('/assets/fonts/Lora-Ital.woff2') format('woff2-variations'),
+         url('/assets/fonts/Lora-Ital.woff2') format('woff2');
+    font-weight: 1 999; 
+    font-style: italic;
+}
 
 html {
     font-size: 62.5%;
