@@ -7,7 +7,7 @@
 
 @font-face {
 	font-family: "Mana";
-	src: url("../fonts/manamini.woff2");
+	src: url("/assets/fonts/minimana.woff2");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -20,7 +20,6 @@
   transform: translate(0, 0);
   speak: none;
   text-transform: none;
-  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -89,6 +88,11 @@
 .ms-6x {
   font-size: 4.5em;
 }
+
+.ms-cost.ms-shadow {
+  box-shadow: -0.06em 0.07em 0 #111, 0 0.06em 0 #111;
+}
+.ms-cost.ms-shadow.ms-untap {
 
 /*
  * Fixed width */

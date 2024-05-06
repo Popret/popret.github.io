@@ -35,7 +35,6 @@
   padding: 1rem;
   background: var(--color-background);
   font-weight: 500; 
-
 	&::before, &::after{
 	  --_size: var(--_br);
 	  content: "";
