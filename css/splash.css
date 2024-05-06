@@ -2,7 +2,7 @@
   font-family: 'Merienda';
   src: url('/assets/fonts/Merienda-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-style: Bold;
+  font-style: normal;
 }
 .splash_main {
   --_br: 3rem;
