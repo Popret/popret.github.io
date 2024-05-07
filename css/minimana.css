@@ -92,7 +92,6 @@
 .ms-cost.ms-shadow {
   box-shadow: -0.06em 0.07em 0 #111, 0 0.06em 0 #111;
 }
-.ms-cost.ms-shadow.ms-untap {
 
 /*
  * Fixed width */
@@ -128,18 +127,23 @@
 }
 .ms-ci-w {
   background: #fff;
+  background: var(--color-pie-w);
 }
 .ms-ci-u {
   background: #3b6ba0;
+  background: var(--color-pie-u);
 }
 .ms-ci-b {
   background: #383431;
+  background: var(--color-pie-b);
 }
 .ms-ci-r {
   background: #c6553e;
+  background: var(--color-pie-r);
 }
 .ms-ci-g {
   background: #3d684b;
+  background: var(--color-pie-g);
 }
 .ms-ci-wu, .ms-ci-uw, .ms-ci-azorius {
   background: conic-gradient(#fff 45deg, #3b6ba0 45deg 225deg, #fff 225deg);
@@ -218,4 +222,5 @@
 }
 .ms-ci-wubrg, .ms-ci-rugbw, .ms-ci-rugwb, .ms-ci-ruwbg, .ms-ci-ruwgb, .ms-ci-rwbgu, .ms-ci-rwbug, .ms-ci-rwgbu, .ms-ci-rwgub, .ms-ci-rwubg, .ms-ci-rwugb, .ms-ci-ubgrw, .ms-ci-ubgwr, .ms-ci-ubrgw, .ms-ci-ubrwg, .ms-ci-ubwgr, .ms-ci-ubwrg, .ms-ci-ugbrw, .ms-ci-ugbwr, .ms-ci-ugrbw, .ms-ci-ugrwb, .ms-ci-ugwbr, .ms-ci-ugwrb, .ms-ci-urbgw, .ms-ci-urbwg, .ms-ci-urgbw, .ms-ci-urgwb, .ms-ci-urwbg, .ms-ci-urwgb, .ms-ci-uwbgr, .ms-ci-uwbrg, .ms-ci-uwgbr, .ms-ci-uwgrb, .ms-ci-uwrbg, .ms-ci-uwrgb, .ms-ci-wbgru, .ms-ci-wbgur, .ms-ci-wbrgu, .ms-ci-wbrug, .ms-ci-wbugr, .ms-ci-wburg, .ms-ci-wgbru, .ms-ci-wgbur, .ms-ci-wgrbu, .ms-ci-wgrub, .ms-ci-wgubr, .ms-ci-wgurb, .ms-ci-wrbgu, .ms-ci-wrbug, .ms-ci-wrgbu, .ms-ci-wrgub, .ms-ci-wrubg, .ms-ci-wrugb, .ms-ci-wubgr, .ms-ci-wugbr, .ms-ci-wugrb, .ms-ci-wurbg, .ms-ci-wurgb, .ms-ci-bgruw, .ms-ci-bgrwu, .ms-ci-bgurw, .ms-ci-bguwr, .ms-ci-bgwru, .ms-ci-bgwur, .ms-ci-brguw, .ms-ci-brgwu, .ms-ci-brugw, .ms-ci-bruwg, .ms-ci-brwgu, .ms-ci-brwug, .ms-ci-bugrw, .ms-ci-bugwr, .ms-ci-burgw, .ms-ci-burwg, .ms-ci-buwgr, .ms-ci-buwrg, .ms-ci-bwgru, .ms-ci-bwgur, .ms-ci-bwrgu, .ms-ci-bwrug, .ms-ci-bwugr, .ms-ci-bwurg, .ms-ci-gbruw, .ms-ci-gbrwu, .ms-ci-gburw, .ms-ci-gbuwr, .ms-ci-gbwru, .ms-ci-gbwur, .ms-ci-grbuw, .ms-ci-grbwu, .ms-ci-grubw, .ms-ci-gruwb, .ms-ci-grwbu, .ms-ci-grwub, .ms-ci-gubrw, .ms-ci-gubwr, .ms-ci-gurbw, .ms-ci-gurwb, .ms-ci-guwbr, .ms-ci-guwrb, .ms-ci-gwbru, .ms-ci-gwbur, .ms-ci-gwrbu, .ms-ci-gwrub, .ms-ci-gwubr, .ms-ci-gwurb, .ms-ci-rbguw, .ms-ci-rbgwu, .ms-ci-rbugw, .ms-ci-rbuwg, .ms-ci-rbwgu, .ms-ci-rbwug, .ms-ci-rgbuw, .ms-ci-rgbwu, .ms-ci-rgubw, .ms-ci-rguwb, .ms-ci-rgwbu, .ms-ci-rgwub, .ms-ci-rubgw, .ms-ci-rubwg, .ms-ci-5 {
   background: conic-gradient(#fff 36deg, #3b6ba0 36deg 108deg, #383431 108deg 180deg, #c6553e 180deg 252deg, #3d684b 252deg 324deg, #fff 324deg);
+  background: conic-gradient(var(--color-pie-w) 36deg, var(--color-pie-u) 36deg 108deg, var(--color-pie-b) 108deg 180deg, var(--color-pie-r) 180deg 252deg, var(--color-pie-g) 252deg 324deg, var(--color-pie-w) 324deg);
 }
