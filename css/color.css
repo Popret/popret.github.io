@@ -27,11 +27,11 @@
 --color-accent: #803D3B;
 --color-text: #2C2726;
 /*	*/
---color-pie-w: #F6DDA2;
---color-pie-u: #09529A;
---color-pie-b: #342F30;
---color-pie-r: #853232;
---color-pie-g: #38664C;
+--color-pie-w: #F8E6BA;
+--color-pie-u: #1C7FE1;
+--color-pie-b: #6B6163;
+--color-pie-r: #BD5050;
+--color-pie-g: #488F68;
 }
 body {
     color: var(--color-text);

@@ -8,9 +8,15 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-   @media screen and (max-width:500px){
+   @media screen and (max-width:580px){
     ul{
+    width:min-content;
         flex-direction:column;
+        margin:auto;
+        &amp; li{
+        width:min-content;
+        text-align:left;
+        }
     }
 }
 ul{
@@ -24,32 +30,8 @@ font-size: 1.5em;
 flex: 1;
 text-align: center;
 white-space: nowrap;
-::before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border: 2px solid black;
-  border-radius: 50%;
-  margin-bottom:6px;
-  margin-right: 3px; 
-  vertical-align: middle;
+padding-left:1px;
 }
-}
-ul li:nth-of-type(1) a::before{
-  background-color: var(--color-pie-w);
-}
-ul li:nth-of-type(2) a::before{
-  background-color: var(--color-pie-u);
-}
-ul li:nth-of-type(3) a::before{
-  background-color: var(--color-pie-b);
-}
-ul li:nth-of-type(4) a::before{
-  background-color: var(--color-pie-r);
-}
-ul li:nth-of-type(5) a::before{
-  background-color: var(--color-pie-g)
 }
   </style>
   <link rel="stylesheet" href="/css/base.css" type="text/css">
@@ -72,19 +54,19 @@ ul li:nth-of-type(5) a::before{
   </p>
   <ul>
    <li>
-    <a href="White">White</a>
+    <a href="White"><i class="ms ms-ci ms-ci-1 ms-ci-w1"></i> White</a>
    </li>
    <li>
-    <a href="Blue">Blue</a>
+    <a href="Blue"><i class="ms ms-ci ms-ci-1 ms-ci-u1"></i> Blue</a>
    </li>
    <li>
-    <a href="Black">Black</a>
+    <a href="Black"><i class="ms ms-ci ms-ci-1 ms-ci-b1"></i> Black</a>
    </li>
    <li>
-    <a href="Red">Red</a>
+    <a href="Red"><i class="ms ms-ci ms-ci-1 ms-ci-r1"></i> Red</a>
    </li>
    <li>
-    <a href="Green">Green</a>
+    <a href="Green"><i class="ms ms-ci ms-ci-1 ms-ci-g1"></i> Green</a>
    </li>
   </ul>
   <p></p>
