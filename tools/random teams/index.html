@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/assets/favicon.gif" type="image/gif">
+  <title>
+   Team Splitter — Jano.sh
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/base.css" type="text/css">
+  <link rel="stylesheet" href="/css/color.css" type="text/css">
+  <link rel="stylesheet" href="/css/minimana.css" type="text/css">
+ </head>
+ <body>
+  <nav>
+   <a href="/">Home</a>
+   <section>
+    <a href="/me">Me</a>
+        <a href="/now">Now</a>
+   </section>
+  </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <h1>
+   Team Splitter
+  </h1>
+  <textarea id="inputText" placeholder="Enter names, one per line"></textarea><br>
+    <input type="number" id="numTeams" placeholder="Number of Teams">
+    <button onclick="splitIntoTeams()">Team Number</button><br>
+    <input type="number" id="teamSize" placeholder="Size of Teams">
+    <button onclick="splitIntoTeamSize()">Team Size</button>
+  <div class="result" id="result"></div>
+  <script>
+   function splitIntoTeams() {
+            const inputText = document.getElementById('inputText').value.trim();
+            const numTeams = parseInt(document.getElementById('numTeams').value);
+            const names = inputText.split('\n').filter(name => name.trim() !== '');
+            const teams = Array.from({ length: numTeams }, () => []);
+            let teamIndex = 0;
+
+            names.forEach(name => {
+                teams[teamIndex].push(name);
+                teamIndex = (teamIndex + 1) % numTeams;
+            });
+
+            displayTeams(teams);
+        }
+
+        function splitIntoTeamSize() {
+            const inputText = document.getElementById('inputText').value.trim();
+            const teamSize = parseInt(document.getElementById('teamSize').value);
+            const names = inputText.split('\n').filter(name => name.trim() !== '');
+            const teams = [];
+
+            for (let i = 0; i < names.length; i += teamSize) {
+                teams.push(names.slice(i, i + teamSize));
+            }
+
+            displayTeams(teams);
+        }
+
+        function displayTeams(teams) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                const teamDiv = document.createElement('div');
+                teamDiv.innerHTML = `<strong>Team ${index + 1}:</strong><br>${team.join('<br>')}`;
+                resultDiv.appendChild(teamDiv);
+            });
+        }
+  </script>
+  <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
+ </body>
+</html>
