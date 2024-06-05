@@ -26,9 +26,9 @@
   </h1>
   <textarea id="inputText" placeholder="Enter names, one per line"></textarea><br>
 		<input type="number" id="numTeams" placeholder="Number of Teams">
-		<button onclick="splitIntoTeams()">Team Number</button><br>
+		<button onclick="splitIntoNumberOfTeams()">Team Number</button><br>
 		<input type="number" id="teamSize" placeholder="Size of Teams">
-		<button onclick="splitIntoTeamSize()">Team Size</button>
+		<button onclick="splitIntoTeamsBySize()">Team Size</button>
   <div class="result" id="result"></div>
   <script>
    function shuffleArray(array) {
@@ -38,26 +38,19 @@
 	}
 }
 
-function splitIntoTeams() {
+function splitIntoNumberOfTeams() {
 	const inputText = document.getElementById('inputText').value.trim();
 	const numTeams = parseInt(document.getElementById('numTeams').value);
 	const names = inputText.split('\n').filter(name => name.trim() !== '');
+	splitIntoTeamsBySize(Math.ceil(names.length/numTeams))
 	
-	shuffleArray(names);
-	const teams = Array.from({ length: numTeams }, () => []);
-	let teamIndex = 0;
-
-	names.forEach(name => {
-		teams[teamIndex].push(name);
-		teamIndex = (teamIndex + 1) % numTeams;
-	});
-
-	displayTeams(teams);
 }
 
-function splitIntoTeamSize() {
+function splitIntoTeamsBySize(teamSize) {
 	const inputText = document.getElementById('inputText').value.trim();
-	const teamSize = parseInt(document.getElementById('teamSize').value);
+	if (!teamSize){
+		teamSize = parseInt(document.getElementById('teamSize').value) || 1;
+	}
 	const names = inputText.split('\n').filter(name => name.trim() !== '');
 	
 	shuffleArray(names);
