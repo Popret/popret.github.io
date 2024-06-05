@@ -25,50 +25,61 @@
    Team Splitter
   </h1>
   <textarea id="inputText" placeholder="Enter names, one per line"></textarea><br>
-    <input type="number" id="numTeams" placeholder="Number of Teams">
-    <button onclick="splitIntoTeams()">Team Number</button><br>
-    <input type="number" id="teamSize" placeholder="Size of Teams">
-    <button onclick="splitIntoTeamSize()">Team Size</button>
+		<input type="number" id="numTeams" placeholder="Number of Teams">
+		<button onclick="splitIntoTeams()">Team Number</button><br>
+		<input type="number" id="teamSize" placeholder="Size of Teams">
+		<button onclick="splitIntoTeamSize()">Team Size</button>
   <div class="result" id="result"></div>
   <script>
-   function splitIntoTeams() {
-            const inputText = document.getElementById('inputText').value.trim();
-            const numTeams = parseInt(document.getElementById('numTeams').value);
-            const names = inputText.split('\n').filter(name => name.trim() !== '');
-            const teams = Array.from({ length: numTeams }, () => []);
-            let teamIndex = 0;
+   function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+}
 
-            names.forEach(name => {
-                teams[teamIndex].push(name);
-                teamIndex = (teamIndex + 1) % numTeams;
-            });
+function splitIntoTeams() {
+	const inputText = document.getElementById('inputText').value.trim();
+	const numTeams = parseInt(document.getElementById('numTeams').value);
+	const names = inputText.split('\n').filter(name => name.trim() !== '');
+	
+	shuffleArray(names)
+	const teams = Array.from({ length: numTeams }, () => []);
+	let teamIndex = 0;
 
-            displayTeams(teams);
-        }
+	names.forEach(name => {
+		teams[teamIndex].push(name);
+		teamIndex = (teamIndex + 1) % numTeams;
+	});
 
-        function splitIntoTeamSize() {
-            const inputText = document.getElementById('inputText').value.trim();
-            const teamSize = parseInt(document.getElementById('teamSize').value);
-            const names = inputText.split('\n').filter(name => name.trim() !== '');
-            const teams = [];
+	displayTeams(teams);
+}
 
-            for (let i = 0; i < names.length; i += teamSize) {
-                teams.push(names.slice(i, i + teamSize));
-            }
+function splitIntoTeamSize() {
+	const inputText = document.getElementById('inputText').value.trim();
+	const teamSize = parseInt(document.getElementById('teamSize').value);
+	const names = inputText.split('\n').filter(name => name.trim() !== '');
+	
+	shuffleArray(names)
+	const teams = [];
 
-            displayTeams(teams);
-        }
+	for (let i = 0; i < names.length; i += teamSize) {
+		teams.push(names.slice(i, i + teamSize));
+	}
 
-        function displayTeams(teams) {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '';
+	displayTeams(teams);
+}
 
-            teams.forEach((team, index) => {
-                const teamDiv = document.createElement('div');
-                teamDiv.innerHTML = `<strong>Team ${index + 1}:</strong><br>${team.join('<br>')}`;
-                resultDiv.appendChild(teamDiv);
-            });
-        }
+function displayTeams(teams) {
+	const resultDiv = document.getElementById('result');
+	resultDiv.innerHTML = '';
+
+	teams.forEach((team, index) => {
+		const teamDiv = document.createElement('div');
+		teamDiv.innerHTML = `<strong>Team ${index + 1}:</strong><br>${team.join('<br>')}`;
+		resultDiv.appendChild(teamDiv);
+	});
+}
   </script>
   <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
  </body>
