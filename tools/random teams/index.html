@@ -43,7 +43,7 @@ function splitIntoTeams() {
 	const numTeams = parseInt(document.getElementById('numTeams').value);
 	const names = inputText.split('\n').filter(name => name.trim() !== '');
 	
-	shuffleArray(names)
+	shuffleArray(names);
 	const teams = Array.from({ length: numTeams }, () => []);
 	let teamIndex = 0;
 
@@ -60,7 +60,7 @@ function splitIntoTeamSize() {
 	const teamSize = parseInt(document.getElementById('teamSize').value);
 	const names = inputText.split('\n').filter(name => name.trim() !== '');
 	
-	shuffleArray(names)
+	shuffleArray(names);
 	const teams = [];
 
 	for (let i = 0; i < names.length; i += teamSize) {
