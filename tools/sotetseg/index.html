@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/assets/favicon.gif" type="image/gif">
+  <title>
+   Jano.sh
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+ <body>
+  <title>
+   Sotetseg Maze Trainer
+  </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <div class="center-wrapper-parent">
+   <div class="canvas-wrapper">
+    <p align="center">
+     <button onclick="showInstructions()">Instructions</button>
+			<button onclick="showAbout()">About (v0.9)</button>
+    </p>
+    <div id="par" align="center">
+     Best possible time: 0.0 seconds (0 ticks)
+    </div>
+    <div id="timer" align="center">
+     Your time: 0.0 seconds (0 ticks, 0 stalled)
+    </div>
+    <div id="container">
+     <canvas id="sotetseg-maze" tabindex="1"></canvas>
+    </div>
+    <p align="center">
+     <button onclick="reset()">Reset</button>
+			<button onclick="newSession()">New Maze</button>
+			<button onclick="showSolution()">Show Solution</button>
+			<button onclick="editSeed()">Edit Seed</button>
+    </p>
+   </div>
+  </div>
+  <script type="text/javascript" src="sotetseg.js"></script>
+  <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
+ </body>
+</html>
