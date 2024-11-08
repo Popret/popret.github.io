@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/assets/favicon.gif" type="image/gif">
   <title>
-   Team Splitter — Jano.sh
+   Filling a Diagonal Board Calc — Jano.sh
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/base.css" type="text/css">
@@ -22,20 +22,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <h1>
-   Team Splitter
+   Filling a Diagonal Board Calc
   </h1>
-  <input type="number" id="size" placeholder="Width of Board">
+  <input type="number" id="len" placeholder="Length of Board">
+		<input type="number" id="width" placeholder="Width of Board">
 		<button onclick="go()">Go</button>
   <div class="result" id="result"></div>
   <script>
    function go() {
-	let size = parseInt(document.getElementById('size').value);
+	let len = parseInt(document.getElementById('len').value);
+	let width = parseInt(document.getElementById('width').value);
 	let root2 = Math.sqrt(2);
-	let sidelen = 1/(2 * root2);
-	let total = 0;
+	let a = width/root2;
+	let total += size * root2;
 	while(size > 0){
-		total += size * root2;
-		size = size - sidelen;
+		size = size - (2 * a);
+		total += 2 * size * root2;
 	}
 	display(total);
 }
