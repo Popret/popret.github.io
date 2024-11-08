@@ -39,9 +39,9 @@
 	let a = width/root2;
 	let total = size * root2;
 	size = size - (2 * a);
-	while(> 0){
-		size = size - (2 * a);
+	while(size > 0){
 		total += (2 * size * root2);
+				size = size - (2 * a);
 	}
 	display(total);
 }
