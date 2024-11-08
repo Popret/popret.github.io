@@ -29,10 +29,10 @@
   </p>
   <input type="number" id="len" placeholder="Side-Length of Square">
 		<input type="number" id="width" placeholder="Width of Board">
-		<button onclick="go()">Go</button>
+		<button onclick="calculate()">Go</button>
   <div class="result" id="result"></div>
   <script>
-   function go() {
+   function calculate() {
 	let len = parseInt(document.getElementById('len').value);
 	let width = parseInt(document.getElementById('width').value);
 	let root2 = Math.sqrt(2);
@@ -40,7 +40,7 @@
 	let total += size * root2;
 	while(size > 0){
 		size = size - (2 * a);
-		total += 2 * size * root2;
+		total += (2 * size * root2);
 	}
 	display(total);
 }
