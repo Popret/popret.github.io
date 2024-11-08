@@ -38,8 +38,7 @@
 	let root2 = Math.sqrt(2);
 	let a = width/root2;
 	let total = size * root2;
-	while(size > 0){
-		size = size - (2 * a);
+	while(size = size - (2 * a) > 0){
 		total += (2 * size * root2);
 	}
 	display(total);
