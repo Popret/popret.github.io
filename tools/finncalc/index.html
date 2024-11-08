@@ -33,8 +33,8 @@
   <div class="result" id="result"></div>
   <script>
    function calculate() {
-	let size = parseInt(document.getElementById('len').value);
-	let width = parseInt(document.getElementById('width').value);
+	let size = parseFloat(document.getElementById('len').value);
+	let width = parseFloat(document.getElementById('width').value);
 	let root2 = Math.sqrt(2);
 	let a = width/root2;
 	let total = size * root2;
