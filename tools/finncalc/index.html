@@ -38,7 +38,9 @@
 	let root2 = Math.sqrt(2);
 	let a = width/root2;
 	let total = size * root2;
-	while(size = size - (2 * a) > 0){
+	size = size - (2 * a);
+	while(> 0){
+		size = size - (2 * a);
 		total += (2 * size * root2);
 	}
 	display(total);
@@ -46,7 +48,7 @@
 
 function display(total) {
 	const resultDiv = document.getElementById('result');
-	resultDiv.innerHTML = total;
+	resultDiv.innerHTML = "" + total;
 }
   </script>
   <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
