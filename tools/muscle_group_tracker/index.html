@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/assets/favicon.gif" type="image/gif">
+  <title>
+   Jano.sh
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/base.css" type="text/css">
+  <link rel="stylesheet" href="/css/color.css" type="text/css">
+  <link rel="stylesheet" href="/css/minimana.css" type="text/css">
+ </head>
+ <body>
+  <nav>
+   <a href="/">Home</a>
+   <section>
+    <a href="/me">Me</a>
+        <a href="/now">Now</a>
+   </section>
+  </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#111">
+  <title>
+   Muscle Tracker
+  </title>
+  <style>
+   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: #111;
+  color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: max(env(safe-area-inset-top), 5vh) 10px max(env(safe-area-inset-bottom), 5vh);
+  gap: 5px;
+}
+
+#list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 0;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+}
+
+.badge {
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: #222;
+  color: #555;
+  letter-spacing: -0.02em;
+  height: 100%;
+}
+
+.btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  color: #f0f0f0;
+  background: #1d1d1d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.btn:active { opacity: 0.7; }
+
+.btn-max {
+  font-size: 13px;
+  color: #444;
+  font-weight: 400;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+#config-btn {
+  flex: none;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#config-btn:active { opacity: 0.7; }
+
+#sheet {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#sheet.open { opacity: 1; pointer-events: auto; }
+
+#sheet-inner {
+  background: #1c1c1c;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-height: 88dvh;
+  overflow-y: auto;
+  padding: 0 16px 32px;
+  transform: translateY(16px);
+  transition: transform 0.2s;
+}
+#sheet.open #sheet-inner { transform: translateY(0); }
+
+#sheet-inner h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 16px 0 12px;
+  text-align: center;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 4px;
+  position: sticky;
+  top: 0;
+  background: #1c1c1c;
+}
+
+.cfg-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 15%;
+  border-bottom: 1px solid #222;
+  gap: 0;
+}
+
+.cfg-row span { font-size: 15px; min-width: 20%;}
+
+.cfg-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  background: #222;
+  color: #f0f0f0;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cfg-val {
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 42px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.done-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: transparent;
+  color: #f0f0f0;
+  font-size: 15px;
+  padding: 13px;
+  cursor: pointer;
+}
+  </style>
+  <div id="list"></div>
+  <div class="row" style="flex: none; height: 44px;">
+   <button id="config-btn" onclick="openConfig()">Configure Goals</button>
+  </div>
+  <div id="sheet" onclick="if(event.target===this)closeConfig()">
+   <div id="sheet-inner">
+    <h2>
+     Training Goals
+    </h2>
+    <div id="cfg-rows"></div>
+    <button class="done-btn" onclick="closeConfig()">Done</button>
+   </div>
+  </div>
+  <script>
+   const MUSCLES = [
+  { id:'neck',       label:'Neck',        max:10 },
+  { id:'traps',      label:'Traps',       max:7  },
+  { id:'side_delt',  label:'Side Delt',   max:5  },
+  { id:'front_delt', label:'Front Delt',  max:5  },
+  { id:'rear_delt',  label:'Rear Delt',   max:5  },
+  { id:'biceps',     label:'Biceps',      max:4  },
+  { id:'triceps',    label:'Triceps',     max:4  },
+  { id:'forearms',   label:'Forearms',    max:14 },
+  { id:'chest',      label:'Chest',       max:8  },
+  { id:'lats',       label:'Lats',        max:7  },
+  { id:'abs',        label:'Abs',         max:7  },
+  { id:'lower_back', label:'Lower Back',  max:14 },
+  { id:'glutes',     label:'Glutes',      max:10 },
+  { id:'quads',      label:'Quads',       max:10 },
+  { id:'hams',       label:'Hams',        max:10 },
+  { id:'calves',     label:'Calves',      max:14 },
+];
+
+let state = {};
+let goals = {};
+let hidden_set = new Set();
+try { state = JSON.parse(localStorage.getItem('mt_state') || '{}'); } catch {}
+try { goals = JSON.parse(localStorage.getItem('mt_goals') || '{}'); } catch {}
+try { hidden_set = new Set(JSON.parse(localStorage.getItem('mt_hidden') || '[]')); } catch {}
+function saveHidden() { localStorage.setItem('mt_hidden', JSON.stringify([...hidden_set])); }
+
+function getMax(id) {
+  const m = MUSCLES.find(x => x.id === id);
+  return goals[id] !== undefined ? goals[id] : (m ? m.max : 7);
+}
+
+function daysSince(id) {
+  const ts = state[id];
+  return ts ? (Date.now() - ts) / 86400000 : null;
+}
+
+function badgeColor(days, max) {
+  if (days === null) return { bg: '#222', fg: '#555', label: '—' };
+  const r = Math.min(days / max, 1);
+  let R, G;
+  if (r < 0.5) { R = Math.round(r * 2 * 220); G = 200; }
+  else          { R = 220; G = Math.round((1 - (r - 0.5) * 2) * 190); }
+  const bright = 0.299*R + 0.587*G;
+  return {
+    bg: `rgb(${R},${G},0)`,
+    fg: bright > 130 ? '#111' : '#eee',
+    label: days < 1 ? '<1d' : Math.floor(days) + 'd'
+  };
+}
+
+function render() {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  MUSCLES.forEach(m => {
+    if (hidden_set.has(m.id)) return;
+    const days = daysSince(m.id);
+    const c = badgeColor(days, getMax(m.id));
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const badge = document.createElement('div');
+    badge.className = 'badge';
+    badge.style.background = c.bg;
+    badge.style.color = c.fg;
+    badge.textContent = c.label;
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+
+    const name = document.createElement('span');
+    name.textContent = m.label;
+
+    const maxSpan = document.createElement('span');
+    maxSpan.className = 'btn-max';
+    maxSpan.textContent = getMax(m.id) + 'd max';
+
+    btn.appendChild(name);
+    btn.appendChild(maxSpan);
+    btn.onclick = () => {
+      state[m.id] = Date.now();
+      localStorage.setItem('mt_state', JSON.stringify(state));
+      render();
+    };
+
+    row.appendChild(badge);
+    row.appendChild(btn);
+    list.appendChild(row);
+  });
+}
+
+function openConfig() {
+  const rows = document.getElementById('cfg-rows');
+  rows.innerHTML = '';
+  MUSCLES.forEach(m => {
+    let val = getMax(m.id);
+    let hidden = hidden_set.has(m.id);
+    const row = document.createElement('div');
+    row.className = 'cfg-row';
+
+    const lbl = document.createElement('span');
+    lbl.textContent = m.label;
+    lbl.style.color = hidden ? '#555' : '#f0f0f0';
+
+    const ctrl = document.createElement('div');
+    ctrl.className = 'cfg-controls';
+
+    const minus = document.createElement('button');
+    minus.className = 'step';
+    minus.textContent = '−';
+    if (hidden) { minus.disabled = true; minus.style.opacity = '0.3'; }
+
+    const valEl = document.createElement('span');
+    valEl.className = 'cfg-val';
+    valEl.textContent = hidden ? '—' : val + 'd';
+    if (hidden) valEl.style.color = '#555';
+
+    const plus = document.createElement('button');
+    plus.className = 'step';
+    plus.textContent = '+';
+    if (hidden) { plus.disabled = true; plus.style.opacity = '0.3'; }
+
+    const hideBtn = document.createElement('button');
+    hideBtn.className = 'step';
+    hideBtn.textContent = hidden ? 'Show' : 'Hide';
+    hideBtn.style.width = 'auto';
+    hideBtn.style.borderRadius = '6px';
+    hideBtn.style.padding = '0 8px';
+    hideBtn.style.fontSize = '12px';
+    hideBtn.style.color = hidden ? '#aaa' : '#666';
+    hideBtn.onclick = () => {
+      if (hidden_set.has(m.id)) hidden_set.delete(m.id);
+      else hidden_set.add(m.id);
+      saveHidden();
+      openConfig();
+    };
+
+    minus.onclick = () => { val = Math.max(1, val - 1); goals[m.id] = val; valEl.textContent = val + 'd'; localStorage.setItem('mt_goals', JSON.stringify(goals)); };
+    plus.onclick  = () => { val = Math.min(90, val + 1); goals[m.id] = val; valEl.textContent = val + 'd'; localStorage.setItem('mt_goals', JSON.stringify(goals)); };
+
+    ctrl.appendChild(minus);
+    ctrl.appendChild(valEl);
+    ctrl.appendChild(plus);
+    ctrl.appendChild(hideBtn);
+    row.appendChild(lbl);
+    row.appendChild(ctrl);
+    rows.appendChild(row);
+  });
+  document.getElementById('sheet').classList.add('open');
+}
+
+function closeConfig() {
+  document.getElementById('sheet').classList.remove('open');
+  render();
+}
+
+render();
+  </script>
+  <footer style="display: flex; flex-direction: row; text-align: center;"></footer>
+ </body>
+</html>
