@@ -355,7 +355,7 @@ function openConfig() {
     hideBtn.style.color = hidden ? '#aaa' : '#666';
     hideBtn.onclick = () => {
       if (hidden_set.has(m.id)) hidden_set.delete(m.id);
-      else hidden_set.add(m.id);
+        else hidden_set.add(m.id);
       saveHidden();
       openConfig();
     };
@@ -372,12 +372,20 @@ function openConfig() {
     rows.appendChild(row);
   });
   document.getElementById('sheet').classList.add('open');
+  history.pushState({ sheet: true }, '');
 }
 
-function closeConfig() {
+function closeConfig(fromPop) {
   document.getElementById('sheet').classList.remove('open');
+  if (!fromPop && history.state && history.state.sheet) history.back();
   render();
 }
+
+window.addEventListener('popstate', e => {
+  if (document.getElementById('sheet').classList.contains('open')) {
+    closeConfig(true);
+  }
+});
 
 render();
   </script>
